@@ -1,259 +1,373 @@
-
-<html lang="pt-br">
-  <head>
-
-    <style>
-    /* Reset para garantir que o banner ocupe toda a largura */
-    body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .banner-noticias {
-        background-color: #c22a1e;
-        color: white;
-        text-align: center;
-        padding: 15px 0;
-        width: 100vw;
-        max-width: 100%;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-    }
-    
-    .banner-noticias h1 {
-        margin: 0;
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-    }
-</style>
-
-<div class="banner-noticias">
-    <h1>ÚLTIMAS NOTICIAS</h1>
-</div>
-    
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '635654032461043');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=635654032461043&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-    
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Dosis:wght@200;300;400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./assets/css/com.css">
-
-    
-
-    <!-- Título da Página -->
-    <title>Protocolo Oculto Revelado - MCTD</title>
-    
-    <style type="text/css">
-      body {
-        color: #000000;
-        background-image: url("assets/img/bg.jpeg");
-        background-color: #ffffff;
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-        background-blend-mode: darken;
-      }
-    </style>
-
-  </head>
-  <body>
-    
-    <header class="py-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            
-
-            <!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desabilitar Clique Direito</title>
-    <script>
-        // Desabilita o clique direito
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            alert('A visualização do código fonte foi desabilitada!');
-        });
+    <title>Medidor de Peso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-        // Tenta bloquear atalhos comuns de inspeção (Ctrl+U, Ctrl+Shift+I)
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || 
-                (e.shiftKey && (e.key === 'i' || e.key === 'I')))) {
-                e.preventDefault();
-                alert('Acesso ao código fonte bloqueado!');
+        body {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Toggle buttons */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .toggle-btn {
+            padding: 8px 20px;
+            border: 1px solid #4CAF50;
+            background-color: #fff;
+            color: #4CAF50;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:first-child {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .toggle-btn:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+
+        .toggle-btn.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Weight display */
+        .weight-display {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Slider container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Hide default slider */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            outline: none;
+            margin: 30px 0;
+        }
+
+        /* Custom track fill */
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #4CAF50 var(--fill-percent), #e0e0e0 var(--fill-percent));
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-track {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            cursor: pointer;
+        }
+
+        /* Custom thumb (triangle) */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            margin-top: -18px;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            border: none;
+            height: 20px;
+            width: 20px;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Triangle thumb overlay */
+        .thumb-overlay {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 16px solid #4CAF50;
+            pointer-events: none;
+            transform: translateX(-10px);
+            z-index: 1;
+        }
+
+        /* Tick marks container */
+        .tick-marks {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            margin-top: -15px;
+        }
+
+        /* Individual tick mark */
+        .tick {
+            position: absolute;
+            width: 1px;
+            height: 8px;
+            background-color: #999;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .tick.major {
+            height: 12px;
+            width: 2px;
+            background-color: #666;
+        }
+
+        /* Tick label */
+        .tick-label {
+            position: absolute;
+            font-size: 12px;
+            color: #666;
+            top: 15px;
+            transform: translateX(-50%);
+        }
+
+        /* Instruction text */
+        .instruction {
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .weight-display {
+                font-size: 36px;
             }
+            
+            .tick-label {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Toggle buttons -->
+        <div class="toggle-container">
+            <button class="toggle-btn active" data-unit="kg">kg</button>
+            <button class="toggle-btn" data-unit="lb">lb</button>
+        </div>
+
+        <!-- Weight display -->
+        <div class="weight-display">89 kg</div>
+
+        <!-- Slider container -->
+        <div class="slider-container">
+            <input type="range" id="weight-slider" min="30" max="150" step="0.5" value="89">
+            <div class="thumb-overlay"></div>
+            <div class="tick-marks"></div>
+        </div>
+
+        <!-- Instruction text -->
+        <div class="instruction">Arraste para ajustar</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Constants
+            const KG_TO_LB = 2.20462;
+            const MIN_KG = 30;
+            const MAX_KG = 150;
+            const STEP_KG = 0.5;
+            const MIN_LB = Math.round(MIN_KG * KG_TO_LB);
+            const MAX_LB = Math.round(MAX_KG * KG_TO_LB);
+            const STEP_LB = 1;
+
+            // Elements
+            const toggleBtns = document.querySelectorAll('.toggle-btn');
+            const weightDisplay = document.querySelector('.weight-display');
+            const weightSlider = document.getElementById('weight-slider');
+            const thumbOverlay = document.querySelector('.thumb-overlay');
+            const tickMarks = document.querySelector('.tick-marks');
+
+            // State
+            let currentUnit = 'kg';
+
+            // Initialize the slider
+            function initSlider() {
+                createTickMarks();
+                updateSliderFill();
+                updateThumbPosition();
+
+                // Event listeners
+                weightSlider.addEventListener('input', handleSliderChange);
+                toggleBtns.forEach(btn => {
+                    btn.addEventListener('click', toggleUnit);
+                });
+
+                // Initial update
+                updateWeightDisplay();
+            }
+
+            // Create tick marks and labels
+            function createTickMarks() {
+                tickMarks.innerHTML = '';
+                
+                const min = currentUnit === 'kg' ? MIN_KG : MIN_LB;
+                const max = currentUnit === 'kg' ? MAX_KG : MAX_LB;
+                const range = max - min;
+                
+                // Create tick marks every 5 units
+                const smallStep = currentUnit === 'kg' ? 5 : 10;
+                // Create labels every 10 units
+                const largeStep = currentUnit === 'kg' ? 10 : 20;
+                
+                for (let i = 0; i <= range; i += smallStep) {
+                    const value = min + i;
+                    const percent = (i / range) * 100;
+                    
+                    const tick = document.createElement('div');
+                    tick.className = 'tick';
+                    
+                    // Major ticks with labels at every 10 units
+                    if (value % largeStep === 0) {
+                        tick.className += ' major';
+                        
+                        const label = document.createElement('div');
+                        label.className = 'tick-label';
+                        label.textContent = value;
+                        label.style.left = `${percent}%`;
+                        tickMarks.appendChild(label);
+                    }
+                    
+                    tick.style.left = `${percent}%`;
+                    tickMarks.appendChild(tick);
+                }
+            }
+
+            // Update the fill of the slider track
+            function updateSliderFill() {
+                const min = parseFloat(weightSlider.min);
+                const max = parseFloat(weightSlider.max);
+                const val = parseFloat(weightSlider.value);
+                const fillPercent = ((val - min) / (max - min)) * 100;
+                
+                weightSlider.style.setProperty('--fill-percent', `${fillPercent}%`);
+            }
+
+            // Update the position of the thumb overlay
+            function updateThumbPosition() {
+                const min = parseFloat(weightSlider.min);
+                const max = parseFloat(weightSlider.max);
+                const val = parseFloat(weightSlider.value);
+                const percent = ((val - min) / (max - min)) * 100;
+                
+                // Calculate the position based on the slider's width
+                const sliderWidth = weightSlider.offsetWidth;
+                const position = (percent / 100) * sliderWidth;
+                
+                thumbOverlay.style.left = `${position}px`;
+            }
+
+            // Handle slider change
+            function handleSliderChange() {
+                updateWeightDisplay();
+                updateSliderFill();
+                updateThumbPosition();
+            }
+
+            // Update the weight display
+            function updateWeightDisplay() {
+                const value = parseFloat(weightSlider.value);
+                weightDisplay.textContent = `${value} ${currentUnit}`;
+            }
+
+            // Toggle between kg and lb
+            function toggleUnit(e) {
+                const newUnit = e.target.dataset.unit;
+                
+                if (newUnit === currentUnit) return;
+                
+                // Update active button
+                toggleBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.unit === newUnit);
+                });
+                
+                // Get current value before changing units
+                const currentValue = parseFloat(weightSlider.value);
+                
+                // Update slider properties based on new unit
+                if (newUnit === 'kg') {
+                    // Convert from lb to kg
+                    const newValue = parseFloat((currentValue / KG_TO_LB).toFixed(1));
+                    
+                    weightSlider.min = MIN_KG;
+                    weightSlider.max = MAX_KG;
+                    weightSlider.step = STEP_KG;
+                    weightSlider.value = newValue;
+                } else {
+                    // Convert from kg to lb
+                    const newValue = Math.round(currentValue * KG_TO_LB);
+                    
+                    weightSlider.min = MIN_LB;
+                    weightSlider.max = MAX_LB;
+                    weightSlider.step = STEP_LB;
+                    weightSlider.value = newValue;
+                }
+                
+                currentUnit = newUnit;
+                
+                // Update UI
+                createTickMarks();
+                updateWeightDisplay();
+                updateSliderFill();
+                updateThumbPosition();
+            }
+
+            // Handle window resize
+            window.addEventListener('resize', updateThumbPosition);
+
+            // Initialize
+            initSlider();
         });
     </script>
-
-  
-    <style>
-        /* Impede seleção de texto (opcional) */
-        body {
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
-    </style>
-</head>
-<body>
 </body>
-</html>
-
-            <p><span id="peopleCount">300</span> pessoas de  <b><span id="address" style="color: #000000;"></span></b> estão assistindo esse vídeo</p>
-
-<!--SCRIPT GEOLOCALIZAÇÃO-->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>$.get("https://ipinfo.io/json", function (response) { $("#address").html(response.city);
-}, "jsonp");
-</script>
-
-<!--FIM DO SCRIPT-->
-
-
-<!--SCRIPT AUMENTO DE PESSOAS-->
-<script>
-  // Função para aumentar o número a cada 30 segundos
-  function aumentarNumero() {
-    var peopleCountElement = document.getElementById('peopleCount');
-    var numeroAtual = parseInt(peopleCountElement.innerText, 10);
-
-    // Aumenta o número em 1
-    var novoNumero = numeroAtual + 6;
-
-    // Atualiza o conteúdo do elemento
-    peopleCountElement.innerText = novoNumero;
-
-    // Chama a função novamente após 30 segundos (30000 milissegundos)
-    setTimeout(aumentarNumero, 15000);
-  }
-
-  // Inicia o aumento quando a página carrega
-  aumentarNumero();
-</script>
-
-<!--FIM DO SCRIPT-->
-
-            <!-- Headline -->
-            <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Ventas</title>
-    <!-- Link para carregar a fonte Exo 2 -->
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilo global para garantir que a fonte Exo 2 seja usada */
-        body {
-            font-family: 'Exo 2', sans-serif !important;
-        }
-    </style>
-</head>
-<body>
-    <h3 class="my-4" style="font-family: 'Exo 2', sans-serif;">
-        <b> Nuevos Estudios Comprueban la Eficacia de un Reciente 
-            <span style="color: green;"> Descubrimiento Científico </span> 
-            Capaz de Reducir los Niveles de Glucosa en la Sangre 
-            <span style="color: red;">  </span>  
-            <i> </i>
-        </b>
-    </h3>
-</body>
-</html>
-
-            <!-- VSL -->
-            <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/8dg80yk1zs.js" async type="module"></script><style>wistia-player[media-id='8dg80yk1zs']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/8dg80yk1zs/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="8dg80yk1zs" aspect="1.7777777777777777"></wistia-player>            <!-- Botão -->
-            <div id="cta1" class="mt-4 d-none">
-              <a href="https://pay.hotmart.com/T97507260M?checkoutMode=10" class="a-btn" style="text-decoration: none;">
-                <span class="span-btn">¡QUIERO OBTENER ACCESO AL PROTOCOLO NATURAL AHORA CON UN 80% DE DESCUENTO!</span>
-                <span class="span-btn2">(atención: cupos limitados)</span>
-              </a>
-            </div>
-
-             
-            
-           
-            <div class="image-bxJWMz6266408">
-<style>
-.image-bxJWMz6266408-element img {
-display: block;
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 0.25vh;
-margin-top: 1.75vh;
-max-width: 80%;
-border-radius: 0;
-border: none;
-}
-@media (max-width: 1200px) {
-.image-bxJWMz6266408-element img {
-max-width: 72%;
-}
-}
-@media (max-width: 600px) {
-.image-bxJWMz6266408-element img {
-max-width: 80%;
-margin-left:auto;margin-right:auto;
-}
-}
-</style>
-<div class="image-bxJWMz6266408-element">
-<img loading="lazy" src="https://media.atomicatpages.net/u/z7ZuvcwroBQsWxeGoXlNjqxuFEC3/Pictures/vwAGuW1103312.webp" alt="">
-</div>
-</div>
-
-            
-
-            
-
-            
-            <!-- Termos de Uso e Política de Privacidade -->
-            <div class="text-black mt-4"><a href="termos.html" class="text-black">Termos de Uso</a> <span style="color:#238af6;">| </span> <a href="privacidade.html" class="text-black">Política de Privacidade</a></div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <script type="text/javascript">
-      setTimeout(() => {document.getElementById("cta1").classList.remove("d-none")}, 1935000); // temporização da Call to Action (em milissegundos)
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="./assets/js/com.js"></script>
-  </body>
 </html>
